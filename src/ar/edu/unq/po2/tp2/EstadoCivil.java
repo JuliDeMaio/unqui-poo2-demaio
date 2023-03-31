@@ -4,6 +4,6 @@ public abstract class EstadoCivil {
 
 	public abstract boolean esEstadoCivilCasado();
 	
-	public abstract float asignacionPorConyugePara(EmpleadoPlantaPermanente empleadoPlantaPermanente);
+	public abstract float asignacionPorConyugePara(EmpleadoPlantaPermanente empleadoPlantaPermanente); 
 	
 }

@@ -85,4 +85,6 @@ public abstract class Empleado {
 		return "Empleado [nombre=" + nombre + ", direccion=" + direccion + ", fechaDeNacimiento=" + fechaDeNacimiento
 				+ ", sueldoBasico=" + sueldoBasico + "]";
 	}
+
+	public abstract String generarDesglose(ReciboDeHaberes recibo);
 }

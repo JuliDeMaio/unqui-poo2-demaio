@@ -54,8 +54,21 @@ public class Empresa {
 	
 	public void agregarEmpleado(Empleado empleado) {
 		this.getEmpleados().add(empleado);
-	} 
+	}
 	
+	public void liquidacionDeSueldos() {
+		this.getRecibos().clear();
+		for(Empleado empleado : this.empleados) {
+			ReciboDeHaberes recibo = new ReciboDeHaberes();
+			agregarRecibo(recibo.crearReciboPara(empleado));
+		}
+	
+	}
+	
+	private void agregarRecibo(ReciboDeHaberes recibo) {
+		this.getRecibos().add(recibo);
+	}
+
 	public float montoTotalDeSueldosNetos() {
 		float montoResultanteDeSueldosNetos = 0;
 		for(Empleado empleado : this.empleados){
@@ -78,5 +91,11 @@ public class Empresa {
 			montoResultanteDeRetenciones += empleado.retenciones();
 			}
 		return montoResultanteDeRetenciones;
+	}
+	
+
+	@Override
+	public String toString() {
+		return "Empresa [recibos=" + recibos + "]";
 	}
 }

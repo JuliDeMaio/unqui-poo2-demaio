@@ -73,7 +73,7 @@ public class EmpleadoPlantaPermanente extends Empleado {
 			return this.getSueldoBasico() + this.salarioFamiliar() + asignacionPorAntiguedad();
 		}
 
-		private float asignacionPorAntiguedad() {
+		public float asignacionPorAntiguedad() {
 			return this.antiguedad() * 50;
 		}
 
@@ -103,4 +103,10 @@ public class EmpleadoPlantaPermanente extends Empleado {
 		private float porcentajeFijoDeSueldoBrutoParaAportesJubilatorios() {
 			return 0.15f;
 		}
+		
+		public String generarDesglose(ReciboDeHaberes recibo){
+			return recibo.generarDesgloseParaEmpleadoPlantaPermanente(this);
+			
+		}
+		
 }

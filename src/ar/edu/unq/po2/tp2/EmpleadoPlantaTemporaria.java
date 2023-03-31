@@ -38,7 +38,7 @@ public class EmpleadoPlantaTemporaria extends Empleado {
 		return this.getSueldoBasico() + asignacionDeHorasExtrasParaSueldoBruto();
 	}
 
-	private float asignacionDeHorasExtrasParaSueldoBruto() {
+	public float asignacionDeHorasExtrasParaSueldoBruto() {
 		return this.cantHorasExtras * valorFijoPorCadaHoraExtraParaSueldoBruto();
 	}
 
@@ -74,5 +74,9 @@ public class EmpleadoPlantaTemporaria extends Empleado {
 
 	private float valorFijoPorCadaHoraExtraParaAportesJubilatorios() {
 		return 5f;
+	}
+	public String generarDesglose(ReciboDeHaberes recibo){
+		return recibo.generarDesgloseParaEmpleadoPlantaTemporaria(this);
+		
 	}
 }

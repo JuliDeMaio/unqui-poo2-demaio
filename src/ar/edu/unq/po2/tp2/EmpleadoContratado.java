@@ -49,7 +49,7 @@ public class EmpleadoContratado extends Empleado {
 		return gastosAdministrativosContractuales();
 	}
 	
-	private float gastosAdministrativosContractuales() {
+	public float gastosAdministrativosContractuales() {
 		return 50f;
 	}
 	
@@ -78,5 +78,9 @@ public class EmpleadoContratado extends Empleado {
 	@Override
 	public float asignacionPorSueldoBruto() {
 		return 0;
+	}
+	
+	public String generarDesglose(ReciboDeHaberes recibo){
+		return recibo.generarDesgloseParaEmpleadoContratado(this);
 	}
 }

@@ -56,6 +56,11 @@ public class EmpresaTest {
 		assertEquals(empresaNike.montoTotalDeSueldosNetos(), 7331f);
 	}
 	
+	@Test
+	public void testVerificacionCantidadTotalDeRecibosDeHaberes() {
+		empresaNike.liquidacionDeSueldos();
+		assertEquals(empresaNike.getRecibos().size(), 4);
+	}
 	
 	
 
