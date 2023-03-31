@@ -1,10 +1,12 @@
 package ar.edu.unq.po2.tp4.ej3;
 
+import java.time.Month;
+
 public class IngresoPorHorasExtras extends Ingreso {
 
 	private int cantHorasExtras;
 
-	public IngresoPorHorasExtras(String mesDePercepcion, String concepto, double montoPercibido, int cantHorasExtras) {
+	public IngresoPorHorasExtras(Month mesDePercepcion, String concepto, double montoPercibido, int cantHorasExtras) {
 		super(mesDePercepcion, concepto, montoPercibido);
 		this.cantHorasExtras = cantHorasExtras;
 	}
@@ -18,7 +20,12 @@ public class IngresoPorHorasExtras extends Ingreso {
 	}
 	
 	public double getMontoPercibidoTotal() {
-		return super.getMontoPercibido() + this.getCantHorasExtras();
+		// Se implementa un metodo llamado valorPorHoraExtra para que modifique el valor del total percibido por cada hora extra.
+		return super.getMontoPercibido() + (this.getCantHorasExtras() * valorPorCadaHoraExtra());
+	}
+
+	private double valorPorCadaHoraExtra() {
+		return 40d;
 	}
 	
 	

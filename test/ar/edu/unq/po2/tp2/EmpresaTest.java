@@ -61,7 +61,4 @@ public class EmpresaTest {
 		empresaNike.liquidacionDeSueldos();
 		assertEquals(empresaNike.getRecibos().size(), 4);
 	}
-	
-	
-
 }

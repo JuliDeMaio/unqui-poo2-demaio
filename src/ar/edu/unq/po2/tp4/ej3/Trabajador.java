@@ -21,7 +21,11 @@ public class Trabajador {
 	}
 	
 	public double getMontoImponible() {
-		return 0;
+		double totalMontoPorAhora = 0;
+		for (Ingreso ingreso : this.getIngresos()) {
+			totalMontoPorAhora += ingreso.getMontoPercibido();
+		}
+		return totalMontoPorAhora;
 	}
 
 	public double getTotalPercibido() {
@@ -33,6 +37,10 @@ public class Trabajador {
 	}
 
 	public double getImpuestoAPagar() {
-		return 0;
+		return this.getMontoImponible() * porcentajeDeImpuestoAlTrabajador();
+	}
+
+	private double porcentajeDeImpuestoAlTrabajador() {
+		return 0.02;
 	}
 }

@@ -1,23 +1,24 @@
 package ar.edu.unq.po2.tp4.ej3;
+import java.time.Month;
 
 public abstract class Ingreso {
 	
-	private String mesDePercepcion;
+	private Month mesDePercepcion;
 	private String concepto;
 	private double montoPercibido;
 	
-	public Ingreso(String mesDePercepcion, String concepto, double montoPercibido) {
+	public Ingreso(Month mesDePercepcion, String concepto, double montoPercibido) {
 		super();
 		this.mesDePercepcion = mesDePercepcion;
 		this.concepto = concepto;
 		this.montoPercibido = montoPercibido;
 	}
 
-	public String getMesDePercepcion() {
+	public Month getMesDePercepcion() {
 		return mesDePercepcion;
 	}
 
-	public void setMesDePercepcion(String mesDePercepcion) {
+	public void setMesDePercepcion(Month mesDePercepcion) {
 		this.mesDePercepcion = mesDePercepcion;
 	}
 
