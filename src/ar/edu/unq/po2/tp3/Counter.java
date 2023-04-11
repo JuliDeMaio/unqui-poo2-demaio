@@ -1,34 +1,102 @@
 package ar.edu.unq.po2.tp3;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Counter {
 
-	private List<Integer> numeros;
+	private List<Integer> numbers;
 
-	public List<Integer> getNumeros() {
-		return numeros;
+
+	public Counter() {
+		super();
+		this.setNumbers(new ArrayList<Integer>());
 	}
 
-
-	public void setNumeros(List<Integer> numeros) {
-		this.numeros = numeros;
+	public List<Integer> getNumbers() {
+		return numbers;
 	}
 
-	public int cantidadDeNumerosPares() {
-		int cantidadDeNumerosParesHastaAhora =0;
-		List<Integer> listaDeNumeros = this.getNumeros();
-		
-		for(int i = 0; i < listaDeNumeros.size(); i++) {
-			if(esPar(listaDeNumeros.get(i))) {
-				cantidadDeNumerosParesHastaAhora ++;
-			}
-		}
-		return cantidadDeNumerosParesHastaAhora;
+	public void setNumbers(List<Integer> numbers) {
+		this.numbers = numbers;
 	}
 	
-	public boolean esPar(Integer numero) {
-		return (numero / 2 == 0);
+	public void addNumber(int number) {
+		this.numbers.add(number);
+	}
+	
+	public int getEvenOcurrences() {
+		int evenOcurrencesByNow =0;
+		List<Integer> numbersToCount = this.getNumbers();
+		
+		for(int i = 0; i < numbersToCount.size(); i++) {
+			if(isEven(numbersToCount.get(i))) {
+				evenOcurrencesByNow ++;
+			}
+		}
+		return evenOcurrencesByNow;
+	}
+	
+	public boolean isEven(int number) {
+		return (number % 2 == 0);
+	}
+	
+	public int getOddOcurrences() {
+		int oddOcurrencesByNow =0;
+		List<Integer> numbersToCount = this.getNumbers();
+		
+		for(int i = 0; i < numbersToCount.size(); i++) {
+			if(isOdd(numbersToCount.get(i))) {
+				oddOcurrencesByNow ++;
+			}
+		}
+		return oddOcurrencesByNow;
+	}
+
+	public boolean isOdd(int number) {
+		return !isEven(number);
+	}
+	
+	public int getMultiplesOcurrencesOf(int number, int multiple) {
+		
+		int multipleOcurrencesByNow = 0;
+		List<Integer> numbersToCount = this.getNumbers();
+		
+		for (int i = 0; i < numbersToCount.size(); i++) {
+			if(isMultipleOf(numbersToCount.get(i), multiple)) {
+				multipleOcurrencesByNow++;
+			}
+		}
+		return multipleOcurrencesByNow;
+}
+
+	public boolean isMultipleOf(int number, int multiple) {
+		return (number % multiple == 0);
+		}
+	
+	public Integer numberWithTheMostEvenDigits(List<Integer> numbers) {
+		Integer numberWithTheMostEvenDigitsByNow = 0;
+		
+		for (Integer number : numbers) {
+			if(evenDigits(number) > evenDigits(numberWithTheMostEvenDigitsByNow)) {
+				numberWithTheMostEvenDigitsByNow = number;
+			}
+		}
+		return numberWithTheMostEvenDigitsByNow;
+	}
+	
+	
+	public int evenDigits(Integer number) {
+		
+		int evenDigitsByNow = 0;
+		
+		while(number > 0) {
+			if(number % 2 == 0) {
+				evenDigitsByNow++;
+			} 
+			number = number / 10;
+		}
+		return evenDigitsByNow; 
 	}
 }
 
