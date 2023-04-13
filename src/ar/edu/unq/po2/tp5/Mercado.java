@@ -6,13 +6,13 @@ import java.util.HashMap;
 public class Mercado {
 	
 	private String nombre;
-	private HashMap<Producto, Integer> productos;
+	private HashMap<ProductoTradicional, Integer> productosConStock;
 	private ArrayList<Caja> cajas;
 	
 	public Mercado(String nombre) {
 		super();
 		this.setNombre(nombre);
-		this.setProductos(productos);
+		this.setProductos(new HashMap<ProductoTradicional, Integer>());
 		this.setCajas(cajas);
 	}
 
@@ -24,12 +24,12 @@ public class Mercado {
 		this.nombre = nombre;
 	}
 
-	public HashMap<Producto, Integer> getProductos() {
-		return productos;
+	public HashMap<ProductoTradicional, Integer> getProductos() {
+		return productosConStock;
 	}
 
-	private void setProductos(HashMap<Producto, Integer> productos) {
-		this.productos = productos;
+	private void setProductos(HashMap<ProductoTradicional, Integer> productos) {
+		this.productosConStock = productos;
 	}
 
 	public ArrayList<Caja> getCajas() {
@@ -40,10 +40,34 @@ public class Mercado {
 		this.cajas = cajas;
 	}
 	
-	
-	
-	
-	
-	
-	
+	public Integer stockDe (ProductoTradicional producto) {
+		return this.getProductos().get(producto);
+	}
+
+	public void agregarProducto(ProductoTradicional producto) {
+		this.getProductos().put(producto, stockDespuesDeAgregar(producto)); 
+		
+	}
+
+	private Integer stockDespuesDeAgregar (ProductoTradicional producto) {
+		Integer stockAgregadoHastaAca = 0;
+		if (this.getProductos().containsKey(producto)) {
+			stockAgregadoHastaAca = this.stockDe(producto) + 1;
+		} else { 
+			stockAgregadoHastaAca = 1;
+		}
+		return stockAgregadoHastaAca;
+	}
+
+	public void decrementarProducto(ProductoTradicional producto) {
+		this.getProductos().put(producto, stockDespuesDeDecrementar(producto)); 
+		}
+
+	private Integer stockDespuesDeDecrementar(ProductoTradicional producto) {
+		Integer stockDecrementadoHastaAca = 0;
+		if (this.getProductos().containsKey(producto)) {
+			stockDecrementadoHastaAca = this.stockDe(producto) - 1;
+		}
+		return stockDecrementadoHastaAca;
+	}
 }

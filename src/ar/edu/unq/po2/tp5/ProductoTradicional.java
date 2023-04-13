@@ -1,11 +1,11 @@
 package ar.edu.unq.po2.tp5;
 
-public abstract class Producto {
+public class ProductoTradicional {
 	
 	private String nombre;
 	private Double precioBase;
 	
-	public Producto(String nombre, Double precioBase) {
+	public ProductoTradicional(String nombre, Double precioBase) {
 		super();
 		this.setNombre(nombre);
 		this.setPrecioBase(precioBase);
