@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 	public class CounterTestCase {
 		
 		private Counter counter;
+		private Counter otherCounter;
 		private List<Integer> numbers;
 		
 		/**
@@ -20,11 +21,12 @@ import org.junit.jupiter.api.Test;
 		*/
 		
 		@BeforeEach
-		public void setUp() throws Exception {
+	public void setUp() throws Exception {
 		//Se crea el contador
-		counter = new Counter();
-	
-	
+		counter      = new Counter();
+		otherCounter = new Counter();
+		
+		
 		//Se agregan los numeros. Un solo par y nueve impares
 		counter.addNumber(1);
 		counter.addNumber(3);
@@ -37,31 +39,33 @@ import org.junit.jupiter.api.Test;
 		counter.addNumber(1);
 		counter.addNumber(4);
 		
+		otherCounter.addNumber(104);
+		otherCounter.addNumber(244);
+		otherCounter.addNumber(109);
+		otherCounter.addNumber(681);
+	}
 		
-		this.numbers.add(9517);
-		this.numbers.add(8956);
-		this.numbers.add(132);
-		this.numbers.add(1545);
-		this.numbers.add(4985);
-		this.numbers.add(1546);
-		this.numbers.add(44628);
-		this.numbers.add(1568);
-		}
 		/**
 		* Verifica la cantidad de pares
 		*/
 		
-		@Test
-		public void testEvenNumbers() {
+	@Test
+	public void testEvenNumbers() {
 		// Getting the even occurrences
 		int amount = counter.getEvenOcurrences();
 		// I check the amount is the expected one
-		assertEquals(amount, 1);
-		}
+		assertEquals(1, amount);
+	}
 		
-		@Test
-		public void testNumberWithTheMostEvenDigits() {
-			Integer number = counter.numberWithTheMostEvenDigits(this.numbers);
-			assertEquals(number, 44628);
-		}
+	@Test
+	public void testMultiplesOf() {
+		int amount = counter.getMultiplesOcurrencesOf(3);
+		assertEquals(2, amount);
+	}
+		
+	@Test
+	public void testNumberWithTheMostEvenDigits() {
+		Integer number = otherCounter.numberWithTheMostEvenDigits();
+		assertEquals(number, 244);
+	}
 }
