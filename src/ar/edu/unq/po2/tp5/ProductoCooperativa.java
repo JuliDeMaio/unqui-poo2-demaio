@@ -1,21 +1,25 @@
 package ar.edu.unq.po2.tp5;
 
-public class ProductoCooperativa extends ProductoTradicional {
+public class ProductoCooperativa extends Producto{
+	
+	public ProductoCooperativa(String nombre, double precio) {
+		super(nombre, precio);
+	}
 
-	public ProductoCooperativa(String nombre, Double precioBase) {
-		super(nombre, precioBase);
+	public ProductoCooperativa(String nombre, double precio, int stock) {
+		super(nombre, precio, stock);
 	}
 	
 	public double descuento() {
 		return 0.10;
 	}
 	
-	public Double getPrecioBase() {
-		return super.getPrecioBase() - this.descuentoAAplicar();	
+	public double getPrecio() {
+		return super.getPrecio() - this.descuentoAAplicar();	
 	}
 
-	private Double descuentoAAplicar() {
-		return super.getPrecioBase() * this.descuento();
+	private double descuentoAAplicar() {
+		return super.getPrecio() * this.descuento();
 	}
 	
 }

@@ -6,13 +6,13 @@ import java.util.HashMap;
 public class Mercado {
 	
 	private String nombre;
-	private HashMap<ProductoTradicional, Integer> productosConStock;
+	private HashMap<Producto, Integer> productosConStock;
 	private ArrayList<Caja> cajas;
 	
 	public Mercado(String nombre) {
 		super();
 		this.setNombre(nombre);
-		this.setProductos(new HashMap<ProductoTradicional, Integer>());
+		this.setProductos(new HashMap<Producto, Integer>());
 		this.setCajas(cajas);
 	}
 
@@ -24,11 +24,11 @@ public class Mercado {
 		this.nombre = nombre;
 	}
 
-	public HashMap<ProductoTradicional, Integer> getProductos() {
+	public HashMap<Producto, Integer> getProductos() {
 		return productosConStock;
 	}
 
-	private void setProductos(HashMap<ProductoTradicional, Integer> productos) {
+	private void setProductos(HashMap<Producto, Integer> productos) {
 		this.productosConStock = productos;
 	}
 
@@ -40,16 +40,16 @@ public class Mercado {
 		this.cajas = cajas;
 	}
 	
-	public Integer stockDe (ProductoTradicional producto) {
+	public Integer stockDe (Producto producto) {
 		return this.getProductos().get(producto);
 	}
 
-	public void agregarProducto(ProductoTradicional producto) {
+	public void agregarProducto(Producto producto) {
 		this.getProductos().put(producto, stockDespuesDeAgregar(producto)); 
 		
 	}
 
-	private Integer stockDespuesDeAgregar (ProductoTradicional producto) {
+	private Integer stockDespuesDeAgregar (Producto producto) {
 		Integer stockAgregadoHastaAca = 0;
 		if (this.getProductos().containsKey(producto)) {
 			stockAgregadoHastaAca = this.stockDe(producto) + 1;
@@ -59,11 +59,11 @@ public class Mercado {
 		return stockAgregadoHastaAca;
 	}
 
-	public void decrementarProducto(ProductoTradicional producto) {
+	public void decrementarProducto(Producto producto) {
 		this.getProductos().put(producto, stockDespuesDeDecrementar(producto)); 
 		}
 
-	private Integer stockDespuesDeDecrementar(ProductoTradicional producto) {
+	private Integer stockDespuesDeDecrementar(Producto producto) {
 		Integer stockDecrementadoHastaAca = 0;
 		if (this.getProductos().containsKey(producto)) {
 			stockDecrementadoHastaAca = this.stockDe(producto) - 1;
