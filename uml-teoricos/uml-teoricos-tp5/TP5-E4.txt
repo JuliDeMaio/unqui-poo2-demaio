@@ -1,0 +1,30 @@
+1. getFirstFrom (get)
+
+Collection: No funciona, no existe el mensaje get en collection.
+List: Funciona.
+ArrayList: Funciona.
+LinkedList: Funciona.
+
+
+2. addLast (add)
+
+Collection: No funciona, porque add devuelve un boolean y la funcion es de tipo void.
+List: No funciona, porque add toma dos parametros (int, element) y la funcion solo envia element.
+ArrayList: No funciona, mismo caso que List.
+LinkedList: No funciona, mismo caso que List. Podria usarse el addLast que ya esta definido en LinkedList.
+
+
+3. getSubCollection (subList)
+
+Collection: No funciona, no cuenta con el mensaje subList.
+List: Funciona.
+ArrayList: Funciona.
+LinkedList: No funciona, no cuenta con el mensaje subList.
+
+
+4. containsElement (contains)
+
+Collection: Funciona.
+List: Funciona.
+ArrayList: Funciona.
+LinkedList: Funciona.

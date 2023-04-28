@@ -1,0 +1,13 @@
+4. Durante la iteracion, ¿fue necesario distinguir si el objeto era una Persona o una
+Mascota para poder imprimir su nombre? ¿Como se llama el mecanismo de abstraccion que permite esto?
+
+- No, no fue necesario ya que cada objeto retornaba por si mismo su nombre y no habia problema de tipos al colocarlos
+todos en la misma coleccion. Mecanismo de abstraccion de tipos, todos son objetos sin distincion de tipo.
+
+5. ¿Podria asegurar que tanto mascotas como personas respondan al mensaje getName() mediante herencia?
+¿Como? ¿Que ocurre si Persona es subclase de otra clase que no puede ser modificada por ud.? ¿De que 
+otra manera puede asegurar el polimorfismo, teniendo e ncuenta que esta implementando en Java?
+
+- Si, ambas clases hacen lo mismo en el mensaje getName(). Unicamente hay que establecer la herencia.
+Si Persona es subclase de otra clase no modificable se puede hacer Override para hacer que coincidan los getName() de
+Persona y Mascota. 
