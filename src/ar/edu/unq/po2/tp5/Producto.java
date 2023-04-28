@@ -6,12 +6,6 @@ public class Producto implements IPagable {
 	private double precio;
 	private int stock;
 
-	public Producto(String nombre, double precio) {
-		super();
-		this.setNombre(nombre);
-		this.setPrecio(precio);
-	}
-
 	public Producto(String nombre, double precio, int stock) {
 		super();
 		this.setNombre(nombre);

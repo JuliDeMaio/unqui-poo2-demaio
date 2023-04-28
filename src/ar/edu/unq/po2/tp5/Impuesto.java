@@ -6,7 +6,7 @@ public class Impuesto implements IPagable {
 
 	public Impuesto(double tasaDeServicio) {
 		super();
-		this.tasaDeServicio = tasaDeServicio;
+		this.setTasaDeServicio(tasaDeServicio);
 	}
 	
 	public double getTasaDeServicio() {
