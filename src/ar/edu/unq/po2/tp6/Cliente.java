@@ -9,13 +9,12 @@ public class Cliente {
 	private int    edad;
 	private float  sueldoNetoMensual;
 
-	public Cliente(Banco bancoPerteneciente, String nombre, String apellido, String direccion, int edad, float sueldoNetoMensual) {
+	public Cliente(String nombre, String apellido, String direccion, int edad, float sueldoNetoMensual) {
 		this.setNombre(nombre);
 		this.setApellido(apellido);
 		this.setDireccion(direccion);
 		this.setEdad(edad);
 		this.setSueldoNetoMensual(sueldoNetoMensual);
-		this.setBancoPerteneciente(bancoPerteneciente);
 	}
 	
 	public Banco getBancoPerteneciente() {
@@ -69,15 +68,5 @@ public class Cliente {
 
 	public Float sueldoNetoAnual() {
 		return this.getSueldoNetoMensual() * 12;
-	}
-	
-	public void solicitarCreditoPersonal(float monto, int plazoEnMeses) {
-		SolicitudDeCreditoPersonal solicitudDeCreditoPersonalNueva = new SolicitudDeCreditoPersonal(this, monto, plazoEnMeses);
-		this.getBancoPerteneciente().verificarYGuardarSolicitudDeCredito(solicitudDeCreditoPersonalNueva);
-	}
-	
-	public void solicitarCreditoHipotecario(float monto, int plazoEnMeses, Propiedad propiedadDeGarantia) {
-		SolicitudDeCreditoHipotecario solicitudDeCreditoHipotecariaNueva = new SolicitudDeCreditoHipotecario(this, monto, plazoEnMeses, propiedadDeGarantia);
-		this.getBancoPerteneciente().verificarYGuardarSolicitudDeCredito(solicitudDeCreditoHipotecariaNueva);
 	}
 }

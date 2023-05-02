@@ -40,13 +40,12 @@ public class Banco {
 		}
 
 
-		public void verificarYGuardarSolicitudDeCredito(SolicitudDeCredito solicitudDeCredito) {
-			solicitudDeCredito.verificarSolicitudDeCredito();
-			this.agregarSolicitudDeCredito(solicitudDeCredito);
-		}
-
 		public void agregarSolicitudDeCredito(SolicitudDeCredito solicitudDeCredito) {
 			this.getSolicitudesDeCreditos().add(solicitudDeCredito);
+		}
+		
+		public void verificarSolicitudesDeCredito() {
+			this.getSolicitudesDeCreditos().stream().forEach(s -> s.verificarSolicitudDeCredito());
 		}
 }
 
