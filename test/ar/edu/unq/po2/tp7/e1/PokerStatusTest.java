@@ -1,8 +1,10 @@
-package ar.edu.unq.po2.tp7;
+package ar.edu.unq.po2.tp7.e1;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import ar.edu.unq.po2.tp7.e1.PokerStatus;
 
 class PokerStatusTest {
 

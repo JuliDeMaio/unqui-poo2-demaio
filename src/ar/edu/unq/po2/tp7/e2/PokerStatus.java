@@ -1,14 +1,13 @@
-package ar.edu.unq.po2.tp7;
+package ar.edu.unq.po2.tp7.e2;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class PokerStatus {
 
+	public String verificar(Carta carta1, Carta carta2, Carta carta3, Carta carta4, Carta carta5) {
 
-	public String verificar(String carta1, String carta2, String carta3, String carta4, String carta5) {
-
-		ArrayList<String> manoDePoker = new ArrayList<String>(5);
+		ArrayList<Carta> manoDePoker = new ArrayList<Carta>(5);
 		
 		manoDePoker.add(carta1);
 		manoDePoker.add(carta2);
@@ -16,8 +15,8 @@ public class PokerStatus {
 		manoDePoker.add(carta4);
 		manoDePoker.add(carta5);
 		
-		int cantCartasDelMismoValor  = manoDePoker.stream().filter(s -> carta1.charAt(0)  == s.charAt(0)).collect(Collectors.toList()).size();
-		int cantCartasDelMismoPalo   = manoDePoker.stream().filter(s -> carta1.charAt(1) == s.charAt(1)).collect(Collectors.toList()).size();
+		int cantCartasDelMismoValor  = manoDePoker.stream().filter(s -> carta1.getValor() == s.getValor()).collect(Collectors.toList()).size();
+		int cantCartasDelMismoPalo   = manoDePoker.stream().filter(s -> carta1.getPalo()  == s.getPalo()).collect(Collectors.toList()).size();
 		
 		String loQueTengo = "Nada";
 		
