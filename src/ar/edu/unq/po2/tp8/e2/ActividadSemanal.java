@@ -1,5 +1,8 @@
 package ar.edu.unq.po2.tp8.e2;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class ActividadSemanal {
 
 	private DiaDeLaSemana diaDeLaSemana;
@@ -47,11 +50,31 @@ public class ActividadSemanal {
 		this.deporte = deporte;
 	}
 	
-	public double costo() {
-		double costoHastaElMomento = 0;
-		if 
+	public int costo() {
+		return valorPorDia() + valorPorDeporte();
+	}
+
+	private int valorPorDia() {
+		return costoDeHoraPorDia() * getDuracion();
+	}
+
+	private int valorPorDeporte() {
+		return getDeporte().getComplejidad() * valorFijoPorComplejidad();
+	}
+
+	private int valorFijoPorComplejidad() {
+		return 200;
 	}
 	
+	private int costoDeHoraPorDia() {
+		List<DiaDeLaSemana> listaDeDiasDeCosto500 = Arrays.asList(DiaDeLaSemana.LUNES, DiaDeLaSemana.MARTES, DiaDeLaSemana.MIERCOLES);
 		
-	
+		int costoDeHoraPorDia = 1000;
+		
+		if (listaDeDiasDeCosto500.contains(getDiaDeLaSemana())) {
+			costoDeHoraPorDia = 500; 
+		}
+		
+		return costoDeHoraPorDia;
+	}
 }
